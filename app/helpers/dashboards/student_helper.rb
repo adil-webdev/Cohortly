@@ -1,0 +1,2 @@
+module Dashboards::StudentHelper
+end

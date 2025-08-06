@@ -1,0 +1,128 @@
+<!-- Sidebar -->
+<% content_for :sidebar_content do %>
+  <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4 space-y-3">
+    <%= link_to dashboard_path, class: "hover:bg-base-300 hover:text-indigo-600 text-base-700 group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors" do %>
+      <i class="fas fa-home mr-3"></i>
+      Dashboard
+    <% end %>
+    <%= link_to enrolled_courses_students_path, class: "text-base-700 hover:bg-base-300 hover:text-indigo-600 group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors" do %>
+      <i class="fas fa-book mr-3"></i>
+      My Courses
+    <% end %>
+    <a href="#" class="text-base-700 hover:bg-base-300 hover:text-indigo-600 group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors">
+      <i class="fas fa-calendar mr-3"></i>
+      Schedule
+    </a>
+    <a href="#" class="text-base-700 hover:bg-base-300 hover:text-indigo-600 group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors">
+      <i class="fas fa-tasks mr-3"></i>
+      Assignments
+    </a>
+    <a href="#" class="text-base-700 hover:bg-base-300 hover:text-indigo-600 group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors">
+      <i class="fas fa-chart-line mr-3"></i>
+      Progress
+    </a>
+    <a href="#" class="text-base-700 hover:bg-base-300 hover:text-indigo-600 group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors">
+      <i class="fas fa-users mr-3"></i>
+      Discussions
+    </a>
+    <a href="#" class="text-base-700 hover:bg-base-300 hover:text-indigo-600 group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors">
+      <i class="fas fa-cog mr-3"></i>
+      Settings
+    </a>
+    <%= link_to courses_path, class: "text-base-700 hover:bg-base-300 hover:text-indigo-600 group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors" do %>
+      <i class="fas fa-suitcase mr-3"></i>
+      Buy Courses
+    <% end %>
+  </ul>
+<% end %>
+
+<% content_for :main_content do %>
+
+  <div class="md:grid md:grid-cols-12">
+
+    <div class="md:col-span-12">
+      <!-- Hero Section -->
+      <div class="bg-indigo-600 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 class="text-4xl font-bold mb-4">Discover Our Courses</h1>
+          <p class="text-xl text-indigo-100 mb-8 max-w-3xl mx-auto">
+            Explore our comprehensive collection of courses designed to help you master new skills and advance your career.
+          </p>
+          <div class="max-w-md mx-auto">
+            <div class="relative text-white">
+              <input type="text" placeholder="Search courses..." class="w-full px-4 py-3 pl-12 rounded-lg text-white-900 border-1 focus:outline-none focus:ring-2 focus:ring-indigo-300">
+              <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-white-400"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filters and Stats -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8">
+          <div class="mb-4 lg:mb-0">
+            <h2 class="text-2xl font-bold text-base-900 mb-2">All Courses</h2>
+            <p class="text-base-600">Choose from 24 courses across 6 categories</p>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <select class="px-4 py-2 border text-base-content bg-base-100 border-base-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+              <option>All Categories</option>
+              <option>Web Development</option>
+              <option>Data Science</option>
+              <option>Mobile Development</option>
+              <option>Design</option>
+              <option>Business</option>
+              <option>Marketing</option>
+            </select>
+            <select class="px-4 py-2 border border-base-300 text-base-content bg-base-100 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+              <option>All Levels</option>
+              <option>Beginner</option>
+              <option>Intermediate</option>
+              <option>Advanced</option>
+            </select>
+            <select class="px-4 py-2 border border-base-300 text-base-content bg-base-100 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+              <option>Sort by: Popular</option>
+              <option>Sort by: Newest</option>
+              <option>Sort by: Rating</option>
+              <option>Sort by: Duration</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Course Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Course Card 1 -->
+          <%= render @courses %>
+
+        </div>
+
+        <!-- Load More Button -->
+        <div class="text-center mt-12">
+          <button class="bg-base-100 text-indigo-600 border-2 border-indigo-600 px-8 py-3 rounded-md font-medium hover:bg-indigo-600 hover:text-white transition-colors">
+            Load More Courses
+          </button>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <% if current_user.nil? %>
+        <div class="bg-indigo-600 text-white py-16 mt-16">
+          <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-4">Ready to Start Learning?</h2>
+            <p class="text-xl text-indigo-100 mb-8">
+              Join thousands of students who are already advancing their careers with Cohortly.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <%= link_to 'Create Free Account', new_user_registration_path, class: "bg-white text-indigo-600 px-8 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+
+<%= render 'shared/footer' %>
+
+<% end %>
+

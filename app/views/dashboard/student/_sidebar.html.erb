@@ -1,0 +1,37 @@
+<!-- Sidebar -->
+<% content_for :sidebar_content do %>
+  <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4 space-y-3">
+    <%= link_to dashboard_path, class: "hover:bg-base-300 hover:text-indigo-600 text-base-700 group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors" do %>
+      <i class="fas fa-home mr-3"></i>
+      Dashboard
+    <% end %>
+    <%= link_to enrolled_courses_students_path, class: "text-base-700 hover:bg-base-300 hover:text-indigo-600 group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors" do %>
+      <i class="fas fa-book mr-3"></i>
+      My Courses
+    <% end %>
+    <a href="#" class="text-base-700 hover:bg-base-300 hover:text-indigo-600 group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors">
+      <i class="fas fa-calendar mr-3"></i>
+      Schedule
+    </a>
+    <a href="#" class="text-base-700 hover:bg-base-300 hover:text-indigo-600 group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors">
+      <i class="fas fa-tasks mr-3"></i>
+      Assignments
+    </a>
+    <a href="#" class="text-base-700 hover:bg-base-300 hover:text-indigo-600 group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors">
+      <i class="fas fa-chart-line mr-3"></i>
+      Progress
+    </a>
+    <a href="#" class="text-base-700 hover:bg-base-300 hover:text-indigo-600 group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors">
+      <i class="fas fa-users mr-3"></i>
+      Discussions
+    </a>
+    <a href="#" class="text-base-700 hover:bg-base-300 hover:text-indigo-600 group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors">
+      <i class="fas fa-cog mr-3"></i>
+      Settings
+    </a>
+    <%= link_to courses_path, class: "text-base-700 hover:bg-base-300 hover:text-indigo-600 group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors" do %>
+      <i class="fas fa-suitcase mr-3"></i>
+      Buy Courses
+    <% end %>
+  </ul>
+<% end %>

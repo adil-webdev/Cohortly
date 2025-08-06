@@ -1,0 +1,80 @@
+<div class="collapse collapse-plus border border-base-300 rounded-box mb-4">
+  <input type="checkbox" class="peer" />
+  <div class="collapse-title text-xl font-medium flex items-center justify-between">
+    <div class="flex items-center">
+      <div class="flex items-center">
+        <div class="badge badge-primary badge-sm mr-3"><%= section.position %></div>
+        <div>
+          <h3 class="font-semibold"><%= section.title %></h3>
+          <p class="text-sm opacity-70"><%= pluralize(section.lessons.count, 'lesson') %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="collapse-content">
+    <div class="space-y-2 pt-2">
+      <% section.lessons.each do |lesson| %>
+        <% 
+          is_instructor = current_user == @course.instructor
+          lesson_progress = @enrollment&.lesson_progresses&.find_by(lesson: lesson) if @enrollment
+          is_current = @lesson&.id == lesson.id
+          is_completed = !is_instructor && lesson_progress&.status == 'completed'
+          is_in_progress = !is_instructor && lesson_progress&.status == 'in_progress'
+        %>
+        <%= link_to watch_lesson_course_path(@course, lesson),
+            class: "flex items-center justify-between p-3 hover:bg-base-200 rounded-lg transition-colors #{'bg-primary/10 border border-primary/20' if is_current}",
+            data: { turbo_frame: 'lesson-content' } do %>
+          <div class="flex items-center">
+            <% if is_instructor %>
+              <% if lesson.video.attached? %>
+                <div class="w-2 h-2 bg-success rounded-full mr-3"></div>
+              <% else %>
+                <div class="w-2 h-2 bg-error rounded-full mr-3"></div>
+              <% end %>
+            <% else %>
+              <% if is_completed %>
+                <div class="w-2 h-2 bg-success rounded-full mr-3"></div>
+              <% elsif is_in_progress %>
+                <div class="w-2 h-2 bg-warning rounded-full mr-3"></div>
+              <% elsif lesson.video.attached? %>
+                <div class="w-2 h-2 bg-info rounded-full mr-3"></div>
+              <% else %>
+                <div class="w-2 h-2 bg-base-300 rounded-full mr-3"></div>
+              <% end %>
+            <% end %>
+            <div>
+              <span class="font-medium"><%= lesson.title %></span>
+              <div class="text-sm opacity-70">
+                <% if is_instructor %>
+                  <% if lesson.video.attached? %>
+                    Video uploaded
+                  <% else %>
+                    No video uploaded
+                  <% end %>
+                <% else %>
+                  <% if is_completed %>
+                    Completed
+                  <% elsif is_in_progress %>
+                    In Progress
+                  <% else %>
+                    Video lesson
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <% if is_current %>
+              <div class="badge badge-primary badge-sm">Current</div>
+            <% elsif is_completed %>
+              <div class="badge badge-success badge-sm">✓</div>
+            <% end %>
+            <% if is_instructor %>
+              <div class="badge badge-neutral badge-sm">Instructor</div>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

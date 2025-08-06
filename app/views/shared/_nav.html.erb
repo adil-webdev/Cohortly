@@ -1,0 +1,61 @@
+<% if current_page?(root_path) %>
+  <nav class="bg-white shadow-sm border-b border-white-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-end items-center h-16">
+        <div class="flex items-center">
+          <h1 class="text-2xl font-bold text-indigo-600">Cohortly</h1>
+        </div>
+        <% if user_signed_in? %>
+          <div class="flex items-center ml-auto space-x-4">
+            <%= link_to "Sign Out", destroy_user_session_path, class: "bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out" %>
+          </div>
+        <% else %>
+          <div class="flex items-center ml-auto space-x-4">
+            <%= link_to "Sign In", new_user_session_path, class: "bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+<% else %>
+  <nav class="bg-base-100 shadow-sm border-b border-base-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-end items-center h-16">
+        <div class="flex items-center mr-auto">
+          <h1 class="text-2xl font-bold text-indigo-600">Cohortly</h1>
+        </div>
+        <% if user_signed_in? %>
+          <% if defined?(course) %>
+            <% if current_page? course_path(course.id) %>
+              <div class="flex items-center space-x-6 mr-4">
+                <a href="/courses" class="text-base-700 hover:text-indigo-600 font-medium transition-colors">
+                  <i class="fas fa-arrow-left mr-2"></i>Back to Courses
+                </a>
+              </div>
+            <% end %>
+          <% end %>
+
+          <button popovertarget="popover-1" style="anchor-name:--anchor-1">
+            <div class="avatar avatar-placeholder">
+              <div class="bg-neutral text-neutral-content w-12 rounded-full">
+                <span><%= current_user.firstname.first + current_user.lastname.first %></span>
+              </div>
+            </div>
+          </button>
+          <ul class="dropdown menu w-52 rounded-box bg-base-100 shadow-sm"
+              popover id="popover-1" style="position-anchor:--anchor-1">
+            <li>
+              <%= link_to "Sign Out", destroy_user_session_path %>
+
+            </li>
+            <li><a>Item 2</a></li>
+          </ul>
+        <% else %>
+          <div class="flex items-center ml-auto space-x-4">
+            <%= link_to "Sign In", new_user_session_path, class: "bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+<% end %>

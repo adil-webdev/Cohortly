@@ -1,0 +1,16 @@
+<% content_for :sidebar_content do %>
+  <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4 space-y-3">
+    <%= link_to dashboard_path, class: "hover:bg-base-300 hover:text-indigo-600 text-base-700 group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors" do %>
+      <i class="fas fa-home mr-3"></i>
+      Dashboard
+    <% end %>
+    <%= link_to instructor_courses_path, class: "text-base-700 hover:bg-base-300 hover:text-indigo-600 group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors" do %>
+      <i class="fas fa-book mr-3"></i>
+      My Courses
+    <% end %>
+    <%= link_to new_course_path, class: "text-base-700 hover:bg-base-300 hover:text-indigo-600 group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors" do %>
+      <i class="fas fa-suitcase mr-3"></i>
+      Create Courses
+    <% end %>
+  </ul>
+<% end %>

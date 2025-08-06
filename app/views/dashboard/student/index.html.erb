@@ -1,0 +1,229 @@
+<%= render partial: "dashboard/student/sidebar" %>
+<!-- Main Content -->
+<% content_for :main_content do %>
+  <div class="flex bg-base-300">
+
+    <div class="flex-1 p-8">
+      <!-- Welcome Section -->
+      <div class="mb-8">
+        <h2 class="text-3xl font-bold text-base-content mb-2">Welcome back, John!</h2>
+        <p class="text-base-content">Here's what's happening with your learning today.</p>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div class="bg-base-100 rounded-lg shadow-sm p-6 border border-base-200 hover:shadow-md transition-shadow">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-sm font-medium text-base-content">Enrolled Courses</p>
+              <p class="text-2xl font-bold text-base-content">6</p>
+            </div>
+            <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center">
+              <i class="fas fa-book text-indigo-600"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-base-100 rounded-lg shadow-sm p-6 border border-base-200 hover:shadow-md transition-shadow">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-sm font-medium text-base-content">Completed</p>
+              <p class="text-2xl font-bold text-base-content">4</p>
+            </div>
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+              <i class="fas fa-check-circle text-green-600"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-base-100 rounded-lg shadow-sm p-6 border border-base-200 hover:shadow-md transition-shadow">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-sm font-medium text-base-content">Assignments Due</p>
+              <p class="text-2xl font-bold text-base-content">3</p>
+            </div>
+            <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+              <i class="fas fa-clock text-orange-600"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-base-100 rounded-lg shadow-sm p-6 border border-base-200 hover:shadow-md transition-shadow">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-sm font-medium text-base-content">Study Hours</p>
+              <p class="text-2xl font-bold text-base-content">24h</p>
+            </div>
+            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+              <i class="fas fa-graduation-cap text-purple-600"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Current Courses -->
+        <div class="lg:col-span-2">
+          <div class="bg-base-100 rounded-lg shadow-sm border border-base-200">
+            <div class="p-6 border-b border-base-200">
+              <div class="flex justify-between items-center">
+                <h3 class="text-lg font-semibold text-base-content">Current Courses</h3>
+                <button class="text-indigo-600 hover:text-indigo-700 font-medium text-sm transition-colors">View All
+                </button>
+              </div>
+            </div>
+            <div class="p-6 space-y-4">
+              <div class="border border-base-200 rounded-lg p-4 hover:shadow-sm transition-shadow cursor-pointer">
+                <div class="flex items-start justify-between">
+                  <div class="flex-1">
+                    <h4 class="font-semibold text-base-content mb-1">Advanced JavaScript</h4>
+                    <p class="text-sm text-base-content mb-3">Modern JavaScript concepts and ES6+ features</p>
+                    <div class="flex items-center space-x-4">
+                      <span class="text-xs text-gray-500">Progress: 75%</span>
+                      <span class="text-xs text-gray-500">Due: Dec 15</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                      <div class="bg-indigo-600 h-2 rounded-full" style="width: 75%"></div>
+                    </div>
+                  </div>
+                  <button class="ml-4 bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition-colors">
+                    Continue
+                  </button>
+                </div>
+              </div>
+
+              <div class="border border-base-200 rounded-lg p-4 hover:shadow-sm transition-shadow cursor-pointer">
+                <div class="flex items-start justify-between">
+                  <div class="flex-1">
+                    <h4 class="font-semibold text-base-content mb-1">React Development</h4>
+                    <p class="text-sm text-base-content mb-3">Building modern web applications with React</p>
+                    <div class="flex items-center space-x-4">
+                      <span class="text-xs text-gray-500">Progress: 45%</span>
+                      <span class="text-xs text-gray-500">Due: Dec 20</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                      <div class="bg-indigo-600 h-2 rounded-full" style="width: 45%"></div>
+                    </div>
+                  </div>
+                  <button class="ml-4 bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition-colors">
+                    Continue
+                  </button>
+                </div>
+              </div>
+
+              <div class="border border-base-200 rounded-lg p-4 hover:shadow-sm transition-shadow cursor-pointer">
+                <div class="flex items-start justify-between">
+                  <div class="flex-1">
+                    <h4 class="font-semibold text-base-content mb-1">Database Design</h4>
+                    <p class="text-sm text-base-content mb-3">SQL fundamentals and database optimization</p>
+                    <div class="flex items-center space-x-4">
+                      <span class="text-xs text-gray-500">Progress: 90%</span>
+                      <span class="text-xs text-gray-500">Due: Dec 10</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                      <div class="bg-indigo-600 h-2 rounded-full" style="width: 90%"></div>
+                    </div>
+                  </div>
+                  <button class="ml-4 bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition-colors">
+                    Continue
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar Content -->
+        <div class="space-y-6">
+          <!-- Upcoming Deadlines -->
+          <div class="bg-base-100 rounded-lg shadow-sm border border-base-200">
+            <div class="p-6 border-b border-base-200">
+              <h3 class="text-lg font-semibold text-base-content">Upcoming Deadlines</h3>
+            </div>
+            <div class="p-6 space-y-4">
+              <div class="flex items-center space-x-3">
+                <div class="w-2 h-2 bg-red-500 rounded-full"></div>
+                <div class="flex-1">
+                  <p class="text-sm font-medium text-base-content">React Project</p>
+                  <p class="text-xs text-gray-500">Due in 2 days</p>
+                </div>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+                <div class="flex-1">
+                  <p class="text-sm font-medium text-base-content">Database Quiz</p>
+                  <p class="text-xs text-gray-500">Due in 5 days</p>
+                </div>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                <div class="flex-1">
+                  <p class="text-sm font-medium text-base-content">JS Assignment</p>
+                  <p class="text-xs text-gray-500">Due in 1 week</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Activity -->
+          <div class="bg-base-100 rounded-lg shadow-sm border border-base-200">
+            <div class="p-6 border-b border-base-200">
+              <h3 class="text-lg font-semibold text-base-content">Recent Activity</h3>
+            </div>
+            <div class="p-6 space-y-4">
+              <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                  <i class="fas fa-check text-green-600 text-xs"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-sm text-base-content">Completed lesson: "Arrow Functions"</p>
+                  <p class="text-xs text-gray-500">2 hours ago</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                  <i class="fas fa-comment text-blue-600 text-xs"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-sm text-base-content">New comment on your project</p>
+                  <p class="text-xs text-gray-500">1 day ago</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                  <i class="fas fa-trophy text-purple-600 text-xs"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-sm text-base-content">Earned "Quick Learner" badge</p>
+                  <p class="text-xs text-gray-500">3 days ago</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="bg-base-100 rounded-lg shadow-sm border border-base-200">
+            <div class="p-6 border-b border-base-200">
+              <h3 class="text-lg font-semibold text-base-content">Quick Actions</h3>
+            </div>
+            <div class="p-6 space-y-3">
+              <button class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md text-sm font-medium hover:bg-indigo-700 transition-colors">
+                <i class="fas fa-plus mr-2"></i>
+                Enroll in Course
+              </button>
+              <button class="w-full bg-gray-100 text-gray-700 py-2 px-4 rounded-md text-sm font-medium hover:bg-gray-200 transition-colors">
+                <i class="fas fa-calendar-plus mr-2"></i>
+                Schedule Study Time
+              </button>
+              <button class="w-full bg-gray-100 text-gray-700 py-2 px-4 rounded-md text-sm font-medium hover:bg-gray-200 transition-colors">
+                <i class="fas fa-users mr-2"></i>
+                Join Study Group
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+

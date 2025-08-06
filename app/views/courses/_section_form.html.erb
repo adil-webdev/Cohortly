@@ -1,0 +1,36 @@
+<div class="post-fields" data-nested-form-target="template">
+  <div class="border border-gray-200 rounded-lg p-6 mb-4" id="section-1">
+    <div class="flex justify-between items-center mb-4">
+      <h4 class="text-lg font-semibold text-gray-900">Section</h4>
+    </div>
+    <div class="grid grid-cols-1 gap-4" data-controller="nested-form" data-nested-form-field-for-value="lessons">
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-2">Section Title</label>
+        <%= f.text_field :title, class: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500", placeholder: "Enter section title", required: true %>
+      </div>
+
+
+      <div class="lesson-container" id="lessons-container-1">
+        <div class="flex justify-between items-center mb-3">
+          <h5 class="font-medium text-gray-800">Lessons</h5>
+          <button type="button" class="text-indigo-600 hover:text-indigo-800 text-sm font-medium transition-colors" data-action="nested-form#add">
+            <i class="fas fa-plus mr-1"></i>Add Lesson
+          </button>
+        </div>
+
+      </div>
+
+
+      <div data-nested-form-target="wrapper">
+        <%= f.fields_for :lessons do |lesson_fields| %>
+          <%= render partial: "lesson_form", locals: { f: lesson_fields } %>
+        <% end %>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+
+
